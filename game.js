@@ -85,10 +85,9 @@
 
     const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
 
-    // 撞墙检测
-    if (head.x < 0 || head.x >= COLS || head.y < 0 || head.y >= ROWS) {
-      endGame(); return;
-    }
+    // 边界穿越（环绕）
+    head.x = (head.x + COLS) % COLS;
+    head.y = (head.y + ROWS) % ROWS;
     // 撞自身检测
     if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
       endGame(); return;
