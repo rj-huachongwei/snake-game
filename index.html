@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>贪吃蛇 Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐍 贪吃蛇</h1>
+      <div class="score-board">
+        <div class="score-item">
+          <span class="score-label">当前分数</span>
+          <span class="score-value" id="score">0</span>
+        </div>
+        <div class="score-item">
+          <span class="score-label">最高分</span>
+          <span class="score-value" id="best-score">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-content">
+          <h2 id="overlay-title">贪吃蛇</h2>
+          <p id="overlay-msg">使用方向键或 WASD 控制蛇的移动</p>
+          <button id="main-btn" class="btn btn-primary">开始游戏</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="pause-btn" class="btn btn-secondary" disabled>暂停</button>
+      <button id="restart-btn" class="btn btn-secondary" disabled>重新开始</button>
+    </div>
+
+    <footer>
+      <p>方向键 / WASD 控制 &nbsp;|&nbsp; 空格键 暂停/继续</p>
+    </footer>
+  </div>
+
+  <!-- 游戏结束弹窗 -->
+  <div class="modal" id="modal" style="display:none;">
+    <div class="modal-box">
+      <h2>💀 游戏结束</h2>
+      <p>本次得分：<strong id="modal-score">0</strong></p>
+      <p>最高记录：<strong id="modal-best">0</strong></p>
+      <button id="modal-restart" class="btn btn-primary">再来一局</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
